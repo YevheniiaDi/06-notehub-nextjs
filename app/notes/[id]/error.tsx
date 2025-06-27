@@ -1,5 +1,23 @@
-'use client';
+"use client";
 
-export default function NoteError({ error }: { error: Error }) {
-  return <p>Could not fetch note details. {error.message}</p>;
+import { useEffect } from "react";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return (
+    <div>
+      <h2>Could not fetch note details.</h2>
+      <p>{error.message}</p>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  );
 }

@@ -1,15 +1,20 @@
-'use client';
+"use client";
 
-import { useQuery } from '@tanstack/react-query';
-import { fetchNotes } from '@/lib/api';
-import NoteList from '../components/NoteList/NoteList';
-import NoteForm from '../components/NoteForm/NoteForm';
-import SearchBox from '../components/SearchBox/SearchBox';
-import Pagination from '../components/Pagination/Pagination';
+import { useQuery } from "@tanstack/react-query";
+import { fetchNotes } from "@/lib/api";
+import NoteList from "../components/NoteList/NoteList";
+import NoteForm from "../components/NoteForm/NoteForm";
+import SearchBox from "../components/SearchBox/SearchBox";
+import Pagination from "../components/Pagination/Pagination";
 
 export default function NotesClient() {
-  const { data: notes, isLoading, isError, error } = useQuery({
-    queryKey: ['notes'],
+  const {
+    data: notes,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["notes"],
     queryFn: fetchNotes,
   });
 
@@ -26,4 +31,3 @@ export default function NotesClient() {
     </main>
   );
 }
-

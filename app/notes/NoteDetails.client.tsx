@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useQuery } from '@tanstack/react-query';
-import { fetchNoteById } from '@/lib/api';
-import css from './NoteDetails.module.css';
+import { useQuery } from "@tanstack/react-query";
+import { fetchNoteById } from "@/lib/api";
+import css from "./NoteDetails.module.css";
 
 interface Props {
   id: number;
@@ -14,12 +14,25 @@ export default function NoteDetailsClient({ id }: Props) {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['note', id],
+    queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
   });
 
   if (isLoading) return <p>Loading, please wait...</p>;
-  if (error || !note) return <p>Something went wrong.</p>;
+
+  if (error || !note) {
+    let message = "Something went wrong.";
+    if (error instanceof Error) {
+      message += ` ${error.message}`;
+    }
+    return <p>{message}</p>;
+  }
+
+  const formattedDate = new Date(note.date).toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <div className={css.container}>
@@ -29,7 +42,7 @@ export default function NoteDetailsClient({ id }: Props) {
           <button className={css.editBtn}>Edit note</button>
         </div>
         <p className={css.content}>{note.content}</p>
-        <p className={css.date}>Created {note.date}</p>
+        <p className={css.date}>Created {formattedDate}</p>
       </div>
     </div>
   );

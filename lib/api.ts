@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { Note } from '@/types/note';
+import axios from "axios";
+import { Note } from "@/types/note";
 
-const BASE_URL = 'https://notehub.webspark.dev/api/notes';
+const BASE_URL = "https://notehub.webspark.dev/api/notes";
 const TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 const headers = {

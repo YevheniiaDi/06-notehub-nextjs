@@ -1,5 +1,5 @@
-'use client';
-import css from './Footer.module.css';
+"use client";
+import css from "./Footer.module.css";
 
 export const Footer = () => {
   return (
@@ -9,7 +9,8 @@ export const Footer = () => {
         <div className={css.wrap}>
           <p>Developer: your name</p>
           <p>
-            Contact us: <a href="mailto:student@notehub.app">student@notehub.app</a>
+            Contact us:{" "}
+            <a href="mailto:student@notehub.app">student@notehub.app</a>
           </p>
         </div>
       </div>
