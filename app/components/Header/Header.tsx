@@ -1,14 +1,13 @@
+'use client';
 import Link from 'next/link';
-import styles from './Header.module.css';
+import css from './Header.module.css';
 
-export default function Header() {
+export const Header = () => {
   return (
-    <header className={styles.header}>
-      <Link href="/" aria-label="Home">
-        NoteHub
-      </Link>
+    <header className={css.header}>
+      <Link href="/" aria-label="Home">NoteHub</Link>
       <nav aria-label="Main Navigation">
-        <ul className={styles.navigation}>
+        <ul className={css.navigation}>
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -19,4 +18,4 @@ export default function Header() {
       </nav>
     </header>
   );
-}
+};
