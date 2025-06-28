@@ -7,18 +7,18 @@ import {
 import NoteDetailsClient from "../NoteDetails.client";
 import { fetchNoteById } from "@/lib/api";
 
-type Params = { id: string };
-
 export const metadata: Metadata = {
   title: "Note Details - NoteHub",
   description: "Detailed view of a single note in NoteHub application",
 };
 
-export default async function NoteDetailsPage({ params }: { params: Params }) {
+interface PageProps {
+  params: { id: string };
+}
+
+export default async function NoteDetailsPage({ params }: PageProps) {
   const id = Number(params.id);
-  if (isNaN(id)) {
-    throw new Error("Invalid note ID");
-  }
+  if (isNaN(id)) throw new Error("Invalid note ID");
 
   const queryClient = new QueryClient();
 
