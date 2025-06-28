@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   description: "Detailed view of a single note in NoteHub application",
 };
 
-interface PageProps {
+export default async function NoteDetailsPage({
+  params,
+}: {
   params: { id: string };
-}
-
-export default async function NoteDetailsPage({ params }: PageProps) {
+}) {
   const id = Number(params.id);
   if (isNaN(id)) throw new Error("Invalid note ID");
 
