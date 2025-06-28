@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import {
   HydrationBoundary,
   QueryClient,
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Detailed view of a single note in NoteHub application",
 };
 
-export default async function NoteDetailsPage({
+export default async function Page({
   params,
 }: {
   params: { id: string };
