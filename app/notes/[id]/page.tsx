@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import {
   HydrationBoundary,
   QueryClient,
@@ -7,16 +6,8 @@ import {
 import NoteDetailsClient from "../NoteDetails.client";
 import { fetchNoteById } from "@/lib/api";
 
-export const metadata: Metadata = {
-  title: "Note Details - NoteHub",
-  description: "Detailed view of a single note in NoteHub application",
-};
-
-export default async function Page({
-  params,
-}: {
-  params: { id: string };
-}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function Page({ params }: any) {
   const id = Number(params.id);
   if (isNaN(id)) throw new Error("Invalid note ID");
 
