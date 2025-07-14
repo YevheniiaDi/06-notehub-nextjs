@@ -2,10 +2,10 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { fetchNotes } from "@/lib/api";
-import NoteList from "../components/NoteList/NoteList";
-import NoteForm from "../components/NoteForm/NoteForm";
-import SearchBox from "../components/SearchBox/SearchBox";
-import Pagination from "../components/Pagination/Pagination";
+import NoteList from "@/components/NoteList/NoteList";
+import NoteForm from "@/components/NoteForm/NoteForm";
+import SearchBox from "@/components/SearchBox/SearchBox";
+import Pagination from "@/components/Pagination/Pagination";
 
 export default function NotesClient() {
   const {
